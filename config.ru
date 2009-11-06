@@ -1,0 +1,3 @@
+require 'shooter'
+
+run Shooter

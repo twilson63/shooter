@@ -1,0 +1,23 @@
+%h1 Trouble-shooter
+
+%form{:action => '/', :method => 'get'}
+  %p
+    %label{:for => "q"}
+    %input{:name => "q", :type => "text"}
+  %p
+    %input{:type => "submit", :value => "Search"}
+
+- if @results 
+  %table
+    %thead
+      %tr
+        %th Provider
+        %th Patient
+        %th Body
+    %tbody
+      - @results.each do |r|
+        %tr
+          %td= r[:provider]
+          %td= r[:patient]
+          %td 
+            %a{:href => "/#{r[:id]}.xml"} View
